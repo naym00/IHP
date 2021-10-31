@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <style>
+        * {box-sizing: border-box;}
+        body {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 20px;
+        }
+
+        /* Full-width input fields */
+        input[type=text], input[type=password] , input[type=email]{
+            font-family: "Times New Roman", Times, serif;
+            width: 100%;
+            padding: 10px;
+            display: inline-block;
+            border: none;
+            background: #D1E0E1;
+        }
+        /* Add a background color when the inputs get focus */
+        input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 15px;
+            background-color: white;
+            outline: none;
+        }
+        /* Set a style for all buttons */
+        .Submit {
+            font-family: "Times New Roman", Times, serif;
+            position: absolute;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            width: 530px;
+            height: 50px;
+            top: 108%;
+            left: 50%;
+            font-size: 25px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 0;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .Cancel {
+            font-family: "Times New Roman", Times, serif;
+            position: absolute;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            width: 530px;
+            height: 50px;
+            top: 118%;
+            left: 50%;
+            font-size: 25px;
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+        }
+        .login {
+            font-family: "Times New Roman", Times, serif;
+            position: absolute;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            width: 530px;
+            height: 50px;
+            top: 128%;
+            left: 50%;
+            font-size: 25px;
+            background-color: darkcyan;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+        }
+        .Submit:hover, .Submit:active, .Cancel:hover, .Cancel:active, .login:hover, .login:active {
+            background-color: black;
+        }
+        /* Add padding to container elements */
+        .container, body {
+            background-color: powderblue;
+        }
+        /* Modal Content/Box */
+        .One {
+            background-color: powderblue;
+            margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+            border: 1px solid powderblue;
+            width: 40%; /* Could be more or less, depending on screen size */
+        }
+        /* Mine */
+        h1{
+            text-align: center;
+            font-size: 40px;
+        }
+</style>
+</head>
+<body>
+    <form class="One" method="post" enctype="multipart/form-data">
+        <p class="container">
+            <h1><b>Registration</b></h1>
+            <hr>
+            {% csrf_token %}
+            {% for field in form %}
+                <p>
+                {{ field.label_tag }}
+                {{ field }}
+                {% for error in field.errors %}
+                    <p style="color: #ff0000">{{ error }}</p>
+                {% endfor %}
+                </p>
+            {% endfor %}
+            <button class="Submit" type="submit">Submit</button>
+            <a class="Cancel" href="/" type="submit">Cancel</a>
+            <a class="login" href="/accounts/login" role="button">Log In</a>
+    </form>
+</body>
+</html>

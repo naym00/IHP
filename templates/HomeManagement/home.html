@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        header{
+            background-color: powderblue;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+        }
+        .registration {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
+        .login {
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
+        a:link, a:visited {
+            background-color: darkcyan;
+            color: white;
+            font-size: 50px;
+            margin: 10px;
+            padding: 14px 40px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+        a:hover, a:active {
+            background-color: black;
+        }
+        p{
+            font-family: "Times New Roman", Times, serif;
+            position: absolute;
+            top: 10%;
+            left: 28%;
+            font-size: 80px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <p><b>Information Hider</b></p>
+        <a class="registration"  href="/registration" role="button">Registration</a>
+        <a class="login" href="/accounts/login" role="button">Log In</a>
+    </header>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data</title>
+    <style>
+        body{
+            background-color: powderblue;
+        }
+        .Headline{
+            position: absolute;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            top: 0%;
+            left: 25%;
+            font-size: 35px;
+        }
+        .buttons{
+            display: inline-block;
+            background-color: darkcyan;
+            cursor: pointer;
+            width: 100%;
+            height: 50px;
+        }
+        .encode{
+            font-family: "Times New Roman", Times, serif;
+            position: absolute;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            top: 5%;
+            left: 55%;
+            color: white;
+            border: none;
+            text-decoration: none;
+        }
+        .profile{
+            font-family: "Times New Roman", Times, serif;
+            position: absolute;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            top: 5%;
+            left: 75%;
+            color: white;
+            border: none;
+            text-decoration: none;
+        }
+        .logout{
+            font-family: "Times New Roman", Times, serif;
+            position: absolute;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            top: 5%;
+            left: 90%;
+            color: #c97d7d;
+            border: none;
+            text-decoration: none;
+        }
+        .encode:hover, .encode:active, .profile:hover, .profile:active, .logout:hover, .logout:active {
+            color: black;
+            font-size: 25px;
+        }
+        .Information{
+            position: absolute;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            top: 80%;
+            left: 15%;
+            font-size: 25px;
+        }
+
+</style>
+</head>
+<body>
+{% block content %}
+    <div class="buttons">
+        <a class="encode" href="/encode" role="button">Encode</a>
+        <a class="profile" href="/profile" role="button">Profile</a>
+        <a class="logout" href="/accounts/logout" role="button"><b>Log Out</b></a>
+    </div>
+    <p class="Headline">Information Hider</p>
+
+    <div class="Information">
+        <p>Name: {{ ob.user.first_name }} {{ ob.user.last_name }}</p>
+        <p>Data: {{ ob.Data }}</p>
+    </div>
+
+{% endblock content %}
+</body>
+</html>

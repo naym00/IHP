@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fill up Profile</title>
+    <style>
+        body{
+            font-family: "Times New Roman", Times, serif;
+            background-color: powderblue;
+
+        }
+        input[type=text]{
+            font-family: "Times New Roman", Times, serif;
+            background-color: white;
+            width: 40%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        input[type=text]:focus{
+            font-family: "Times New Roman", Times, serif;
+            font-size: 15px;
+            background-color: #D1E0E1;
+            outline: none;
+        }
+        form {
+            position: absolute;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 400px;
+            top: 50%;
+            left: 50%;
+            background-color: papayawhip;
+            display: inline-block;
+        }
+        .Data{
+            position: absolute;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            top: 28%;
+            left: 60%;
+            height: 150px;
+            width: 400px;
+            font-size: 20px;
+        }
+        .upload {
+            font-family: "Times New Roman", Times, serif;
+            position: absolute;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            width: 440px;
+            height: 50px;
+            top: 66%;
+            left: 50%;
+            font-size: 25px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 0;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+        }
+        .cancel{
+            font-family: "Times New Roman", Times, serif;
+            position: absolute;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 35px;
+            top: 79%;
+            left: 50%;
+            font-size: 25px;
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+        }
+        .upload:hover, .upload:active, .cancel:hover, .cancel:active{
+            background-color: black;
+        }
+</style>
+</head>
+<body>
+    {% load static %}
+    {% block content %}
+    <form method="POST" enctype="multipart/form-data">
+        <div class="Data">
+            {% csrf_token %}
+            <p>Nickname: {{ form.nickname }}</p>
+            <p>Profile Picture: {{ form.profilepic }}</p>
+            <p>Cover Photo: {{ form.coverpic }}</p>
+        </div>
+        <button class="upload" type="submit">Upload</button>
+        <a href="/profile" class="cancel" role="button">Go to Profile</a>
+    </form>
+    {% endblock content %}
+</body>
+</html>
